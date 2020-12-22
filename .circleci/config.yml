@@ -32,6 +32,7 @@ jobs:
            sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
            sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
            sudo update-alternatives --config python3
+           pip3 install ansible boto boto3
       - run: chmod 400 ./ansible/test.pem
       - add_ssh_keys:
           fingerprints:
