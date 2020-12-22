@@ -1,0 +1,58 @@
+vse: &vse
+  docker:
+    - image: circleci/node:8.11.3
+
+ansible: &ansible
+  docker:
+    - image: circleci/python:3.6.2
+      environment:
+       ANSIBLE_HOST_KEY_CHECKING: no
+version: 2.1
+jobs:
+  build:
+    <<: *vse
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test
+      - run: npm run build
+      - persist_to_workspace:
+         root: .
+         paths:
+            - .
+  deploy:
+    <<: *ansible
+    steps:
+      - checkout
+      - attach_workspace:
+         at: .
+      - run:
+         name: Install
+         command:  |
+            python3 -m venv env
+            . env/bin/activate
+            pip install ansible boto boto3
+      - run:
+         name: Test
+         command: |
+           . env/bin/activate
+           pip --version
+      - add_ssh_keys:
+          fingerprints:
+            - "e3:a2:70:58:38:90:7d:10:3c:5c:8b:ff:0f:7b:28:4b:ce:81:f8:84"
+      - run:
+         name: Deploy
+         command: |
+           . env/bin/activate
+           ansible-playbook -i ansible/ec2_deploy.yml
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build
+      - deploy:
+         requires:
+            - build
+         filters:
+            branches:
+               only: master
