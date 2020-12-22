@@ -57,4 +57,3 @@
       become: yes
     - wait_for:
         port: 80
-
