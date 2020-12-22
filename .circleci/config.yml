@@ -29,18 +29,13 @@ jobs:
       - run:
          name: Install
          command: pip3 install ansible boto boto3
-      - run:
-         name: Test
-         command: |
-           . env/bin/activate
-           pip --version
       - run: chmod 400 ./ansible/test.pem
       - add_ssh_keys:
           fingerprints:
             - "e3:a2:70:58:38:90:7d:10:3c:5c:8b:ff:0f:7b:28:4b:ce:81:f8:84"
       - run:
          name: Deploy
-         command: ansible-playbook -i ansible/ec2_deploy.yml --user ubuntu --key-file ./ansible/test.pem --vault-pass-file ./ansible/group_vars/all/.pass.txt
+         command: ansible-playbook ./ansible/ec2_deploy.yml --user ubuntu --key-file ./ansible/test.pem --vault-pass-file ./ansible/group_vars/all/.pass.txt
 workflows:
   version: 2.1
   build:
