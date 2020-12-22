@@ -4,7 +4,7 @@ vse: &vse
 
 ansible: &ansible
   docker:
-    - image: circleci/python:3.6.2
+    - image: circleci/python:3.8.1
       environment:
        ANSIBLE_HOST_KEY_CHECKING: no
 version: 2.1
@@ -28,10 +28,7 @@ jobs:
          at: .
       - run:
          name: Install
-         command:  |
-            python3 -m venv env
-            . env/bin/activate
-            pip install ansible boto boto3
+         command: pip3 install ansible boto boto3
       - run:
          name: Test
          command: |

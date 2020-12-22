@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6ff5223a-f00d-49c3-8712-45041c1b84bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ansible.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ec2_deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ec2_deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +35,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608648426660</updated>
       <workItem from="1608648428966" duration="11185000" />
-      <workItem from="1608665200039" duration="3798000" />
+      <workItem from="1608665200039" duration="4373000" />
     </task>
     <servers />
   </component>
