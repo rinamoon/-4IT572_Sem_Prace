@@ -29,8 +29,10 @@ jobs:
       - run:
          name: Install
          command: |
-          sudo apt install ansible boto boto3
-          sudo apt install python3-pip
+          python3 -m venv env
+          . env/bin/activate
+          pip install --upgrade pip
+          pip install ansible boto boto3
       - run: chmod 400 ./ansible/test.pem
       - add_ssh_keys:
           fingerprints:
